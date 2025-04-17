@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Patient</h2>
+        <form id="editPatientForm">
+            <label>Full Name:</label>
+            <input type="text" id="fullName">
+            
+            <label>Date of Birth:</label>
+            <input type="date" id="dob">
+            
+            <label>Gender:</label>
+            <input type="text" id="gender">
+            
+            <label>Contact:</label>
+            <input type="text" id="contact">
+            
+            <label>Email:</label>
+            <input type="email" id="email">
+            
+            <label>Blood Group:</label>
+            <input type="text" id="bloodGroup">
+            
+            <button type="button" onclick="saveEditedPatient()">Save Changes</button>
+        </form>
+    </div>
+
+    <script>
+        function loadEditForm() {
+            let patient = JSON.parse(sessionStorage.getItem("editPatient"));
+
+            if (patient) {
+                document.getElementById("fullName").value = patient.fullName;
+                document.getElementById("dob").value = patient.dob;
+                document.getElementById("gender").value = patient.gender;
+                document.getElementById("contact").value = patient.contact;
+                document.getElementById("email").value = patient.email;
+                document.getElementById("bloodGroup").value = patient.bloodGroup;
+            }
+        }
+
+        function saveEditedPatient() {
+            let index = sessionStorage.getItem("editIndex");
+            let patients = JSON.parse(localStorage.getItem("patients")) || [];
+
+            patients[index] = {
+                fullName: document.getElementById("fullName").value,
+                dob: document.getElementById("dob").value,
+                gender: document.getElementById("gender").value,
+                contact: document.getElementById("contact").value,
+                email: document.getElementById("email").value,
+                bloodGroup: document.getElementById("bloodGroup").value
+            };
+
+            localStorage.setItem("patients", JSON.stringify(patients));
+            alert("Patient details updated successfully!");
+            window.location.href = "savedPatients.html"; // Redirect back
+        }
+
+        document.addEventListener("DOMContentLoaded", loadEditForm);
+    </script>
+</body>
+</html>

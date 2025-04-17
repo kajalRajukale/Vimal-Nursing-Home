@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .box {
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      .donate-ic {
+        width: 100%;
+        max-width: 350px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 5px;
+      }
+
+      .important-msg {
+        color: red;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 18px;
+        opacity: 0;
+        animation: fadeIn 2s ease-in-out forwards, flash 1s infinite alternate;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes flash {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0.6;
+        }
+      }
+
+      .donor-info p {
+        margin: 10px 0;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin: 10px 0;
+      }
+
+      @media (min-width: 768px) {
+        .box {
+          width: 32%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- QR Section -->
+      <div class="box">
+        <img
+          class="donate-ic"
+          src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEXZ6dklsEthaZ23Of2ZPGi9Saf%2Ftjj8nLtp1q1a4flcmhJQjEw8ePsCH0ZRQ7VDC1J4qn2zpJOL7g3LsA5X1itkHEdvLl%2BehbwQ1ymlKsgcjd8rZnOs6DMrXd89UGdEp46Y53zTLYajbioXXUF0EAEnlbwg%2FcygIVXQJ9dKQojabDzgXIA3PBneh1pvuks2%2B3xpDdQpgrcYBYMfF8FcQ6VEZTOeKh5LV%2F3mgB5ZzFFBf0FauiRjuknLnooVF4QIxP5hZm6Fb8jWMP%2FD%2BifWOj7%2FS7mnjL%2FafJIXD0rw0siDPvsHqjv%2FJSlcxYM61ozZpUiSSOhNVwW7Kna7Fehtgl%2BjdqgYRUe5B%2Bkgw%2BToCrwsxUrgkbC%2B6nGDvU73RM0m4DBiaImEGmqkjb3CRsHA38LRA7sUuEiDGLfR0adc6aWbSGLjzA3ImXTFhKd12%2BH31k54zTQmIYGu6tz%2BK2ss2oxTOGzaByU0yOAmQTvtglv0eZIm%2FqQv1xpFGa%2F3QV%2BYQGWNvlyvO%2BS%2B6lSVvb9fjlw%2FQw7qjxQLkePxYpy231YGvl7R2sIcDkYCAx5k%2FLmhe%2BuVWEe6rlaanXKO0azeZoGNHl7kwaE%3D&allow_caching=true&sz=w1366-h633
+          "
+          alt="QR Code for Donation"
+        />
+        <!-- <h1 style="text-align: center">Scanner</h1> -->
+      </div>
+
+      <!-- Donor Info Section -->
+      <div class="box">
+        <p class="important-msg">
+          📧 Please share the following information to email ID -
+          <strong>balwansumati@gmail.com</strong>
+        </p>
+        <div class="donor-info">
+          <p><strong>Full Name of Donor</strong></p>
+          <p><strong>Address</strong></p>
+          <p><strong>Phone Number</strong></p>
+          <p><strong>PAN Number</strong></p>
+          <p><strong>Birthdate</strong></p>
+          <p><strong>Email ID</strong></p>
+          <p><strong>Send this data via:</strong></p>
+          <ul>
+            <li>WhatsApp: 9579085270</li>
+            <li>Email: balwansumati@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bank Info Section -->
+      <div class="box">
+        <h2>Bank Details</h2>
+        <p>
+          <strong>Account Holder's Name:</strong> Radhabai Hardikar Pranijat
+          Mangal Sanstha
+        </p>
+        <p><strong>Bank Name:</strong> Vishweshwar Sahakari Bank Ltd., Pune</p>
+        <p><strong>Bank Address:</strong> Dhankwadi Branch</p>
+        <p><strong>Account Type:</strong> Savings</p>
+        <p><strong>Account Number:</strong> 004128 100009949</p>
+        <p><strong>IFSC Code:</strong> VSBL 0000004</p>
+      </div>
+    </div>
+  </body>
+</html>
