@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Patient Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        th:nth-child(7), td:nth-child(7) {
+            width: 120px;  /* Set fixed width for Action column */
+        }
+        .edit-btn {
+            background-color: orange;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .edit-btn:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Saved Patient Records</h2>
+        <table id="savedPatientsTable">
+            <tr>
+                <th>Full Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Blood Group</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function loadSavedPatients() {
+            let table = document.getElementById("savedPatientsTable");
+            let patients = JSON.parse(localStorage.getItem("patients")) || [];
+
+            patients.forEach((patient, index) => {
+                let row = table.insertRow();
+                row.innerHTML = `
+                    <td>${patient.fullName}</td>
+                    <td>${patient.dob}</td>
+                    <td>${patient.gender}</td>
+                    <td>${patient.contact}</td>
+                    <td>${patient.email}</td>
+                    <td>${patient.bloodGroup}</td>
+                    <td>
+                        <button class="edit-btn" onclick="editPatient(${index})">Edit</button>
+                    </td>
+                `;
+            });
+        }
+
+        function editPatient(index) {
+            let patients = JSON.parse(localStorage.getItem("patients")) || [];
+            let patient = patients[index];
+
+            // Save patient data in sessionStorage
+            sessionStorage.setItem("editIndex", index);
+            sessionStorage.setItem("editPatient", JSON.stringify(patient));
+
+            // Redirect to edit page
+            window.location.href = "editPatient.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", loadSavedPatients);
+    </script>
+</body>
+</html>
