@@ -4,20 +4,17 @@ function patientApp() {
     currentPatient: {
       name: "",
       age: "",
-      address: "",
-      gender: "Male",
-      phone: "",
       dob: "",
-      compliant: "",
-      treatments: "",
-      investigation: "",
+      gender: "Male",
+      address: "",
+      phone: "",
     },
 
     isEditing: false,
-    isAdding: true,
-    isUpdating: true,
+	isAdding: true,
+	isUpdating: true,
     showAddPatientModal: false,
-    showValidationError: true,
+	showValidationError: true,
 
     fetchPatients() {
       console.log("fetchPatients: ...");
@@ -31,10 +28,7 @@ function patientApp() {
     },
 
     addPatient() {
-      console.log(
-        `addPatient: isAdding=${this.isAdding} isUpdating=${this.isUpdating} patient=`,
-        this.currentPatient
-      );
+      console.log(`addPatient: isAdding=${this.isAdding} isUpdating=${this.isUpdating} patient=`, this.currentPatient);
 
       fetch("api.php", {
         method: "POST",
@@ -48,11 +42,9 @@ function patientApp() {
         });
     },
 
+
     updatePatient(patient) {
-      console.log(
-        `editPatient: isAddindg=${this.isAdding} isUpdating=${this.isUpdating} patient=`,
-        patient
-      );
+      console.log(`editPatient: isAddindg=${this.isAdding} isUpdating=${this.isUpdating} patient=`, patient);
       fetch(`api.php?id=${patient.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -60,36 +52,36 @@ function patientApp() {
       }).then(() => this.fetchPatients());
     },
 
-    submitPatient() {
-      console.log("submitPatient:", this.currentPatient);
+	submitPatient() {
+		console.log("submitPatient:", this.currentPatient);
 
-      if (this.isAdding) {
-        this.addPatient();
-      }
-      if (this.isUpdating) {
-        this.updatePatient(this.currentPatient);
-      }
-      this.currentPatient = {};
-      this.isAdding = false;
-      this.isUpdating = false;
-      this.showAddPatientModal = false;
-    },
+		if (this.isAdding) {
+			this.addPatient();
+		}
+		if (this.isUpdating) {
+			this.updatePatient(this.currentPatient);
+		}
+		this.currentPatient = {};
+		this.isAdding = false;
+		this.isUpdating = false;
+		this.showAddPatientModal = false;
+	},
 
-    showEditPatient(patient) {
-      console.log("showEditPatient:", this.currentPatient);
-      fetch(`api.php?id=${this.currentPatient.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.currentPatient),
-      })
-        .then((response) => response.json())
-        .then(() => {
-          this.fetchPatients();
-          this.currentPatient = {};
-          this.isEditing = false;
-          this.showAddPatientModal = false;
-        });
-    },
+	showEditPatient(patient) {
+		console.log("showEditPatient:", this.currentPatient);
+		fetch(`api.php?id=${this.currentPatient.id}`, {
+		  method: "PUT",
+		  headers: { "Content-Type": "application/json" },
+		  body: JSON.stringify(this.currentPatient),
+		})
+		  .then((response) => response.json())
+		  .then(() => {
+			this.fetchPatients();
+			this.currentPatient = {};
+			this.isEditing = false;
+			this.showAddPatientModal = false;
+		  });
+	  },
 
     deletePatient(id) {
       console.log("Deleting patient with ID:", id);
@@ -98,16 +90,16 @@ function patientApp() {
       );
     },
 
-    showPatient(patient) {
-      console.log("showPatient", patient);
+	showPatient(patient) {
+		console.log("showPatient", patient);
 
-      this.currentPatient = patient;
-      console.table(patient);
-    },
+		this.currentPatient = patient;
+		console.table(patient);
+	},
 
-    showSubmitButton(patient) {
-      return !patient.name || !patient.gender || !patient.dob;
-    },
+	showSubmitButton(patient) {
+		return !patient.name || !patient.gender || !patient.dob
+	},
     initCurrentPatient() {
       this.currentPatient = {
         name: "",
