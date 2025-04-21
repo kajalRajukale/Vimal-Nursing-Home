@@ -2,12 +2,15 @@ function patientApp() {
   return {
     patients: [],
     currentPatient: {
-      name: "",
-      age: "",
-      dob: "",
+      Name: "",
+      Age: "",
+      Address: "",
       gender: "Male",
-      address: "",
       phone: "",
+      Date: "",
+      compliant: "",
+      treatments: "",
+      investigation: "",
     },
 
     isEditing: false,
@@ -94,7 +97,7 @@ function patientApp() {
 		console.log("showPatient", patient);
 
 		this.currentPatient = patient;
-		console.table(patient);
+		console.table(patient)
 	},
 
 	showSubmitButton(patient) {
