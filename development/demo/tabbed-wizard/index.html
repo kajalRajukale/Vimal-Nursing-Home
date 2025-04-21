@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Tabbed Wizard</title>
+
+  <!--
+    <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+  -->
+
+  <!-- --
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  -->
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cabin'>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <!--
+    <link rel='stylesheet' href='/lib/bootstrap/css/bootstrap.min.css'>
+  -->
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="wizard">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <!-- STEP 1 -->
+            <div role="tabpanel" class="tab-pane active" id="step1">
+              <!-- Progress at step -->
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 25%;">
+                  <span class="sr-only">25% Complete</span>
+                </div>
+              </div>
+              <!-- Step Title -->
+              <h1 class="text-center">Select gender</h1>
+              <!-- Step content -->
+              <div id="wzd-content" class="col-md-offset-1 col-md-10">
+                <div class="col-md-4">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      <i class="zmdi zmdi-female zmdi-hc-5x"></i>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      <i class="zmdi zmdi-male-alt zmdi-hc-5x"></i>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                      <i class="zmdi zmdi-male-female zmdi-hc-5x"></i>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- Step navigation controls -->
+              <div id="wzd-nav" class="row">
+                <div id="nav-controls" class="col-md-offset-10 col-md-2">
+                  <a class="btn btn-wzd disabled nav-previous" href="#step1" aria-controls="step1" role="tab"
+                    data-toggle="tab"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                  <a class="btn btn-wzd nav-next" href="#step2" aria-controls="step1" role="tab" data-toggle="tab"><i
+                      class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- END STEP 1 -->
+            <div role="tabpanel" class="tab-pane" id="step2">
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 50%;">
+                  <span class="sr-only">50% Complete</span>
+                </div>
+              </div>
+              <!-- Step title -->
+              <h1 class="text-center">How did you hear about us?</h1>
+              <!-- Step content -->
+              <div id="wzd-content" class="col-md-offset-1 col-md-10">
+                <div class="col-md-4">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      <i class="zmdi zmdi-twitter zmdi-hc-5x"></i>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      <i class="zmdi zmdi-linkedin-box zmdi-hc-5x"></i>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                      <i class="zmdi zmdi-facebook-box zmdi-hc-5x"></i>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- Step navigation controls -->
+              <div id="wzd-nav" class="row">
+                <div id="nav-controls" class="col-md-offset-10 col-md-2">
+                  <a class="btn btn-wzd nav-previous" href="#step1" aria-controls="step1" role="tab"
+                    data-toggle="tab"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                  <a class="btn btn-wzd nav-next" href="#step3" aria-controls="step3" role="tab" data-toggle="tab"><i
+                      class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="step3">
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 75%;">
+                  <span class="sr-only">75% Complete</span>
+                </div>
+              </div>
+              <!-- Step title -->
+              <h1 class="text-center">Would you recommend us?</h1>
+              <!-- Step content -->
+              <div id="wzd-content" class="col-md-offset-1 col-md-10">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    Yes
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    No
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    Probably
+                  </label>
+                </div>
+              </div>
+              <!-- Step navigation controls -->
+              <div id="wzd-nav" class="row">
+                <div id="nav-controls" class="col-md-offset-10 col-md-2">
+                  <a class="btn btn-wzd nav-previous" href="#step2" aria-controls="step2" role="tab"
+                    data-toggle="tab"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                  <a class="btn btn-wzd nav-next" href="#step4" aria-controls="step4" role="tab" data-toggle="tab"><i
+                      class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="step4">
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 100%;">
+                  <span class="sr-only">100% Complete</span>
+                </div>
+              </div>
+              <h1 class="text-center">Thank you!</h1>
+              <p class="text-center"><i class="zmdi zmdi-check-all zmdi-hc-5x"></i></i></p>
+              <!-- Step navigation controls -->
+              <div id="wzd-nav" class="row">
+                <div id="nav-controls" class="col-md-offset-10 col-md-2">
+                  <a class="btn btn-wzd nav-previous" href="#step3" aria-controls="step3" role="tab"
+                    data-toggle="tab"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                  <a class="btn btn-wzd nav-next disabled" href="#step1" aria-controls="step1" role="tab"
+                    data-toggle="tab"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+</body>
+
+</html>

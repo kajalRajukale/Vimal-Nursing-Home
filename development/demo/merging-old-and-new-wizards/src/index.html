@@ -1,0 +1,832 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="x_panel">
+      <div class="x_title d-flex align-items-center">
+        <h3 class="h4"></h3>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="x_content">
+
+        <form class="form-horizontal form-label-left" id="form-wizard" action="insert.php" method="post">
+
+          <!-- progressbar -->
+          <ul id="progressbar">
+            <li class="active" id="wig"><strong>WIG</strong></li>
+            <li id="source"><strong>Source</strong></li>
+            <li id="kpi"><strong>KPI</strong></li>
+            <li id="metrics"><strong>Metrics</strong></li>
+          </ul>
+
+          <!-- Card -->
+          <fieldset>
+            <div class="wizard">
+              <h2 class="fs-title">Wildly Important Goal</h2><br>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name</label>
+                <div class="col-md-6 col-sm-6 ">
+                  <input type="text" id="name" required="required" class="form-control  ">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Product Vision</label>
+                <div class="col-md-6 col-sm-6 ">
+                  <input type="text" id="vision" name="last-name" required="required" class="form-control ">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Goal</label>
+                <div class="col-md-6 col-sm-6 ">
+                  <div id="goal" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                      <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Increase &nbsp;
+                    </label>
+                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                      <input type="radio" name="gender" value="female" class="join-btn"> Decrease
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Unit</label>
+                <div class="col-md-3 col-sm-3">
+                  <input id="unit" class="date-picker form-control" required="required" type="text">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">From</label>
+                <div class="col-md-3 col-sm-3">
+                  <input id="wigfrom" class="date-picker form-control" required="required" type="text">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">To</label>
+                <div class="col-md-3 col-sm-3">
+                  <input id="wigto" class="date-picker form-control" required="required" type="text">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">By </label>
+                <div class="col-md-3">
+                  <div class="daterangepicker dropdown-menu ltr single opensright show-calendar picker_4 xdisplay">
+                    <div class="calendar left single" style="display: block;">
+                      <div class="daterangepicker_input">
+                        <input id="bydate" class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i>
+                        <div class="calendar-time" style="display: none;">
+                          <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
+                        </div>
+                      </div>
+                      <div class="calendar-table">
+                        <table class="table-condensed">
+                          <thead>
+                            <tr>
+                              <th class="prev available"><i class="fa fa-chevron-left glyphicon glyphicon-chevron-left"></i></th>
+                              <th colspan="5" class="month">Oct 2016</th>
+                              <th class="next available"><i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i></th>
+                            </tr>
+                            <tr>
+                              <th>Su</th>
+                              <th>Mo</th>
+                              <th>Tu</th>
+                              <th>We</th>
+                              <th>Th</th>
+                              <th>Fr</th>
+                              <th>Sa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="weekend off available" data-title="r0c0">25</td>
+                              <td class="off available" data-title="r0c1">26</td>
+                              <td class="off available" data-title="r0c2">27</td>
+                              <td class="off available" data-title="r0c3">28</td>
+                              <td class="off available" data-title="r0c4">29</td>
+                              <td class="off available" data-title="r0c5">30</td>
+                              <td class="weekend available" data-title="r0c6">1</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r1c0">2</td>
+                              <td class="available" data-title="r1c1">3</td>
+                              <td class="available" data-title="r1c2">4</td>
+                              <td class="available" data-title="r1c3">5</td>
+                              <td class="available" data-title="r1c4">6</td>
+                              <td class="available" data-title="r1c5">7</td>
+                              <td class="weekend available" data-title="r1c6">8</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r2c0">9</td>
+                              <td class="available" data-title="r2c1">10</td>
+                              <td class="available" data-title="r2c2">11</td>
+                              <td class="available" data-title="r2c3">12</td>
+                              <td class="available" data-title="r2c4">13</td>
+                              <td class="available" data-title="r2c5">14</td>
+                              <td class="weekend available" data-title="r2c6">15</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r3c0">16</td>
+                              <td class="available" data-title="r3c1">17</td>
+                              <td class="today active start-date active end-date available" data-title="r3c2">18</td>
+                              <td class="available" data-title="r3c3">19</td>
+                              <td class="available" data-title="r3c4">20</td>
+                              <td class="available" data-title="r3c5">21</td>
+                              <td class="weekend available" data-title="r3c6">22</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r4c0">23</td>
+                              <td class="available" data-title="r4c1">24</td>
+                              <td class="available" data-title="r4c2">25</td>
+                              <td class="available" data-title="r4c3">26</td>
+                              <td class="available" data-title="r4c4">27</td>
+                              <td class="available" data-title="r4c5">28</td>
+                              <td class="weekend available" data-title="r4c6">29</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r5c0">30</td>
+                              <td class="available" data-title="r5c1">31</td>
+                              <td class="off available" data-title="r5c2">1</td>
+                              <td class="off available" data-title="r5c3">2</td>
+                              <td class="off available" data-title="r5c4">3</td>
+                              <td class="off available" data-title="r5c5">4</td>
+                              <td class="weekend off available" data-title="r5c6">5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="calendar right" style="display: none;">
+                      <div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_end" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i>
+                        <div class="calendar-time" style="display: none;">
+                          <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
+                        </div>
+                      </div>
+                      <div class="calendar-table">
+                        <table class="table-condensed">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th colspan="5" class="month">Nov 2016</th>
+                              <th class="next available"><i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i></th>
+                            </tr>
+                            <tr>
+                              <th>Su</th>
+                              <th>Mo</th>
+                              <th>Tu</th>
+                              <th>We</th>
+                              <th>Th</th>
+                              <th>Fr</th>
+                              <th>Sa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="weekend off available" data-title="r0c0">30</td>
+                              <td class="off available" data-title="r0c1">31</td>
+                              <td class="available" data-title="r0c2">1</td>
+                              <td class="available" data-title="r0c3">2</td>
+                              <td class="available" data-title="r0c4">3</td>
+                              <td class="available" data-title="r0c5">4</td>
+                              <td class="weekend available" data-title="r0c6">5</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r1c0">6</td>
+                              <td class="available" data-title="r1c1">7</td>
+                              <td class="available" data-title="r1c2">8</td>
+                              <td class="available" data-title="r1c3">9</td>
+                              <td class="available" data-title="r1c4">10</td>
+                              <td class="available" data-title="r1c5">11</td>
+                              <td class="weekend available" data-title="r1c6">12</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r2c0">13</td>
+                              <td class="available" data-title="r2c1">14</td>
+                              <td class="available" data-title="r2c2">15</td>
+                              <td class="available" data-title="r2c3">16</td>
+                              <td class="available" data-title="r2c4">17</td>
+                              <td class="available" data-title="r2c5">18</td>
+                              <td class="weekend available" data-title="r2c6">19</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r3c0">20</td>
+                              <td class="available" data-title="r3c1">21</td>
+                              <td class="available" data-title="r3c2">22</td>
+                              <td class="available" data-title="r3c3">23</td>
+                              <td class="available" data-title="r3c4">24</td>
+                              <td class="available" data-title="r3c5">25</td>
+                              <td class="weekend available" data-title="r3c6">26</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r4c0">27</td>
+                              <td class="available" data-title="r4c1">28</td>
+                              <td class="available" data-title="r4c2">29</td>
+                              <td class="available" data-title="r4c3">30</td>
+                              <td class="off available" data-title="r4c4">1</td>
+                              <td class="off available" data-title="r4c5">2</td>
+                              <td class="weekend off available" data-title="r4c6">3</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend off available" data-title="r5c0">4</td>
+                              <td class="off available" data-title="r5c1">5</td>
+                              <td class="off available" data-title="r5c2">6</td>
+                              <td class="off available" data-title="r5c3">7</td>
+                              <td class="off available" data-title="r5c4">8</td>
+                              <td class="off available" data-title="r5c5">9</td>
+                              <td class="weekend off available" data-title="r5c6">10</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="ranges" style="display: none;">
+                      <div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" type="button">Apply</button> <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button></div>
+                    </div>
+                  </div>
+
+                  <fieldset>
+                    <div class="control-group">
+                      <div class="controls">
+                        <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                          <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="" aria-describedby="inputSuccess2Status4">
+                          <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                          <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <input type="button" name="next" class="next btn btn-sm btn-primary" value="Next" />
+          </fieldset>
+
+          <!-- Card -->
+          <fieldset>
+            <div class="wizard">
+              <h2 class="fs-title">Source</h2><br>
+              <p>Hi </p>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Source</label>
+                <div class="col-md-3 col-sm-3">
+                  <select id="data_source" class="form-control form-control-sm">
+                    <option>Choose option</option>
+                    <option>Jira</option>
+                    <option>Salesforce</option>
+                    <option>Excel</option>
+                    <option>Manual</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Frequency</label>
+                <div class="col-md-3 col-sm-3">
+                  <select id="data_frequency" class="form-control form-control-sm">
+                    <option>Choose option</option>
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Biweekly</option>
+                    <option>Monthly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Entry</label>
+                <div class="col-md-3 col-sm-3">
+                  <select id="data_entry" class="form-control form-control-sm">
+                    <option>Choose option</option>
+                    <option>Manual</option>
+                    <option>Automatic</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <input type="button" name="previous" class="previous btn btn-sm btn-outline-secondary" value="Previous" />
+            <input type="button" name="next" class="next btn btn-sm btn-primary" value="Next" />
+          </fieldset>
+
+          <!-- Card -->
+          <fieldset>
+            <div class="card-wizard">
+              <h2 class="fs-title">KPI</h2><br>
+              <p>Hi </p>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align ">Key Value Areas</label>
+                <div class="col-md-3 col-sm-3 ">
+                  <select id="select_kva" class="form-control form-control-sm">
+                    <option>Choose option</option>
+                    <option>Customer Value</option>
+                    <option>Product Quality</option>
+                    <option>Product Delivery</option>
+                    <option>Servant Leadership</option>
+                  </select>
+                </div>
+              </div>
+              </br>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align ">Key Performance Indicators</label>
+                <div class="col-md-3 col-sm-3 ">
+                  <select id="select_kpi" class="form-control form-control-sm">
+                    <option>Choose option</option>
+                    <option>Customer Value</option>
+                    <option>Product Quality</option>
+                    <option>Product Delivery</option>
+                    <option>Servant Leadership</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Goal</label>
+                <div class="col-md-6 col-sm-6 ">
+                  <div id="kpi_goal" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                      <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Increase &nbsp;
+                    </label>
+                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                      <input type="radio" name="gender" value="female" class="join-btn"> Decrease
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Unit
+                  <!--<span class="required">*</span>--></label>
+                <div class="col-md-3 col-sm-3">
+                  <input id="kpi_unit" class="date-picker form-control" required="required" type="text">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">From
+                  <!--<span class="required">*</span>-->
+                </label>
+                <div class="col-md-3 col-sm-3">
+                  <input id="kpi_from" class="date-picker form-control" required="required" type="text">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">To
+                  <!--<span class="required">*</span>-->
+                </label>
+                <div class="col-md-3 col-sm-3">
+                  <input id="kpi_to" class="date-picker form-control" required="required" type="text">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">By </label>
+                <div class="col-md-3">
+                  <div class="daterangepicker dropdown-menu ltr single opensright show-calendar picker_4 xdisplay">
+                    <div class="calendar left single" style="display: block;">
+                      <div class="daterangepicker_input"><input id="kpi_date" class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i>
+                        <div class="calendar-time" style="display: none;">
+                          <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
+                        </div>
+                      </div>
+                      <div class="calendar-table">
+                        <table class="table-condensed">
+                          <thead>
+                            <tr>
+                              <th class="prev available"><i class="fa fa-chevron-left glyphicon glyphicon-chevron-left"></i></th>
+                              <th colspan="5" class="month">Oct 2016</th>
+                              <th class="next available"><i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i></th>
+                            </tr>
+                            <tr>
+                              <th>Su</th>
+                              <th>Mo</th>
+                              <th>Tu</th>
+                              <th>We</th>
+                              <th>Th</th>
+                              <th>Fr</th>
+                              <th>Sa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="weekend off available" data-title="r0c0">25</td>
+                              <td class="off available" data-title="r0c1">26</td>
+                              <td class="off available" data-title="r0c2">27</td>
+                              <td class="off available" data-title="r0c3">28</td>
+                              <td class="off available" data-title="r0c4">29</td>
+                              <td class="off available" data-title="r0c5">30</td>
+                              <td class="weekend available" data-title="r0c6">1</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r1c0">2</td>
+                              <td class="available" data-title="r1c1">3</td>
+                              <td class="available" data-title="r1c2">4</td>
+                              <td class="available" data-title="r1c3">5</td>
+                              <td class="available" data-title="r1c4">6</td>
+                              <td class="available" data-title="r1c5">7</td>
+                              <td class="weekend available" data-title="r1c6">8</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r2c0">9</td>
+                              <td class="available" data-title="r2c1">10</td>
+                              <td class="available" data-title="r2c2">11</td>
+                              <td class="available" data-title="r2c3">12</td>
+                              <td class="available" data-title="r2c4">13</td>
+                              <td class="available" data-title="r2c5">14</td>
+                              <td class="weekend available" data-title="r2c6">15</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r3c0">16</td>
+                              <td class="available" data-title="r3c1">17</td>
+                              <td class="today active start-date active end-date available" data-title="r3c2">18</td>
+                              <td class="available" data-title="r3c3">19</td>
+                              <td class="available" data-title="r3c4">20</td>
+                              <td class="available" data-title="r3c5">21</td>
+                              <td class="weekend available" data-title="r3c6">22</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r4c0">23</td>
+                              <td class="available" data-title="r4c1">24</td>
+                              <td class="available" data-title="r4c2">25</td>
+                              <td class="available" data-title="r4c3">26</td>
+                              <td class="available" data-title="r4c4">27</td>
+                              <td class="available" data-title="r4c5">28</td>
+                              <td class="weekend available" data-title="r4c6">29</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r5c0">30</td>
+                              <td class="available" data-title="r5c1">31</td>
+                              <td class="off available" data-title="r5c2">1</td>
+                              <td class="off available" data-title="r5c3">2</td>
+                              <td class="off available" data-title="r5c4">3</td>
+                              <td class="off available" data-title="r5c5">4</td>
+                              <td class="weekend off available" data-title="r5c6">5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="calendar right" style="display: none;">
+                      <div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_end" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i>
+                        <div class="calendar-time" style="display: none;">
+                          <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
+                        </div>
+                      </div>
+                      <div class="calendar-table">
+                        <table class="table-condensed">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th colspan="5" class="month">Nov 2016</th>
+                              <th class="next available"><i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i></th>
+                            </tr>
+                            <tr>
+                              <th>Su</th>
+                              <th>Mo</th>
+                              <th>Tu</th>
+                              <th>We</th>
+                              <th>Th</th>
+                              <th>Fr</th>
+                              <th>Sa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="weekend off available" data-title="r0c0">30</td>
+                              <td class="off available" data-title="r0c1">31</td>
+                              <td class="available" data-title="r0c2">1</td>
+                              <td class="available" data-title="r0c3">2</td>
+                              <td class="available" data-title="r0c4">3</td>
+                              <td class="available" data-title="r0c5">4</td>
+                              <td class="weekend available" data-title="r0c6">5</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r1c0">6</td>
+                              <td class="available" data-title="r1c1">7</td>
+                              <td class="available" data-title="r1c2">8</td>
+                              <td class="available" data-title="r1c3">9</td>
+                              <td class="available" data-title="r1c4">10</td>
+                              <td class="available" data-title="r1c5">11</td>
+                              <td class="weekend available" data-title="r1c6">12</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r2c0">13</td>
+                              <td class="available" data-title="r2c1">14</td>
+                              <td class="available" data-title="r2c2">15</td>
+                              <td class="available" data-title="r2c3">16</td>
+                              <td class="available" data-title="r2c4">17</td>
+                              <td class="available" data-title="r2c5">18</td>
+                              <td class="weekend available" data-title="r2c6">19</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r3c0">20</td>
+                              <td class="available" data-title="r3c1">21</td>
+                              <td class="available" data-title="r3c2">22</td>
+                              <td class="available" data-title="r3c3">23</td>
+                              <td class="available" data-title="r3c4">24</td>
+                              <td class="available" data-title="r3c5">25</td>
+                              <td class="weekend available" data-title="r3c6">26</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r4c0">27</td>
+                              <td class="available" data-title="r4c1">28</td>
+                              <td class="available" data-title="r4c2">29</td>
+                              <td class="available" data-title="r4c3">30</td>
+                              <td class="off available" data-title="r4c4">1</td>
+                              <td class="off available" data-title="r4c5">2</td>
+                              <td class="weekend off available" data-title="r4c6">3</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend off available" data-title="r5c0">4</td>
+                              <td class="off available" data-title="r5c1">5</td>
+                              <td class="off available" data-title="r5c2">6</td>
+                              <td class="off available" data-title="r5c3">7</td>
+                              <td class="off available" data-title="r5c4">8</td>
+                              <td class="off available" data-title="r5c5">9</td>
+                              <td class="weekend off available" data-title="r5c6">10</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="ranges" style="display: none;">
+                      <div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" type="button">Apply</button> <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button></div>
+                    </div>
+                  </div>
+
+                  <fieldset>
+                    <div class="control-group">
+                      <div class="controls">
+                        <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                          <input type="text" class="form-control  form-control-sm has-feedback-left" id="single_cal3" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                          <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                          <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+            </div>
+
+            <input type="button" name="previous" class="previous btn btn-sm btn-outline-secondary" value="Previous" />
+            <input type="button" name="next" class="next btn btn-sm btn-primary" value="Next" />
+          </fieldset>
+
+          <!-- Card -->
+          <fieldset>
+            <div class="card-wizard">
+              <h2 class="fs-title">Metrics</h2><br>
+              <p>Hi </p>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Sprint Start Date </label>
+                <div class="col-md-3">
+                  <div class="daterangepicker dropdown-menu ltr single opensright show-calendar picker_4 xdisplay">
+                    <div class="calendar left single" style="display: block;">
+                      <div class="daterangepicker_input"><input id="sprint_start" class="input-mini form-control active" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i>
+                        <div class="calendar-time" style="display: none;">
+                          <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
+                        </div>
+                      </div>
+                      <div class="calendar-table">
+                        <table class="table-condensed">
+                          <thead>
+                            <tr>
+                              <th class="prev available"><i class="fa fa-chevron-left glyphicon glyphicon-chevron-left"></i></th>
+                              <th colspan="5" class="month">Oct 2016</th>
+                              <th class="next available"><i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i></th>
+                            </tr>
+                            <tr>
+                              <th>Su</th>
+                              <th>Mo</th>
+                              <th>Tu</th>
+                              <th>We</th>
+                              <th>Th</th>
+                              <th>Fr</th>
+                              <th>Sa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="weekend off available" data-title="r0c0">25</td>
+                              <td class="off available" data-title="r0c1">26</td>
+                              <td class="off available" data-title="r0c2">27</td>
+                              <td class="off available" data-title="r0c3">28</td>
+                              <td class="off available" data-title="r0c4">29</td>
+                              <td class="off available" data-title="r0c5">30</td>
+                              <td class="weekend available" data-title="r0c6">1</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r1c0">2</td>
+                              <td class="available" data-title="r1c1">3</td>
+                              <td class="available" data-title="r1c2">4</td>
+                              <td class="available" data-title="r1c3">5</td>
+                              <td class="available" data-title="r1c4">6</td>
+                              <td class="available" data-title="r1c5">7</td>
+                              <td class="weekend available" data-title="r1c6">8</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r2c0">9</td>
+                              <td class="available" data-title="r2c1">10</td>
+                              <td class="available" data-title="r2c2">11</td>
+                              <td class="available" data-title="r2c3">12</td>
+                              <td class="available" data-title="r2c4">13</td>
+                              <td class="available" data-title="r2c5">14</td>
+                              <td class="weekend available" data-title="r2c6">15</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r3c0">16</td>
+                              <td class="available" data-title="r3c1">17</td>
+                              <td class="today active start-date active end-date available" data-title="r3c2">18</td>
+                              <td class="available" data-title="r3c3">19</td>
+                              <td class="available" data-title="r3c4">20</td>
+                              <td class="available" data-title="r3c5">21</td>
+                              <td class="weekend available" data-title="r3c6">22</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r4c0">23</td>
+                              <td class="available" data-title="r4c1">24</td>
+                              <td class="available" data-title="r4c2">25</td>
+                              <td class="available" data-title="r4c3">26</td>
+                              <td class="available" data-title="r4c4">27</td>
+                              <td class="available" data-title="r4c5">28</td>
+                              <td class="weekend available" data-title="r4c6">29</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r5c0">30</td>
+                              <td class="available" data-title="r5c1">31</td>
+                              <td class="off available" data-title="r5c2">1</td>
+                              <td class="off available" data-title="r5c3">2</td>
+                              <td class="off available" data-title="r5c4">3</td>
+                              <td class="off available" data-title="r5c5">4</td>
+                              <td class="weekend off available" data-title="r5c6">5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="calendar right" style="display: none;">
+                      <div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_end" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i>
+                        <div class="calendar-time" style="display: none;">
+                          <div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i>
+                        </div>
+                      </div>
+                      <div class="calendar-table">
+                        <table class="table-condensed">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th colspan="5" class="month">Nov 2016</th>
+                              <th class="next available"><i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i></th>
+                            </tr>
+                            <tr>
+                              <th>Su</th>
+                              <th>Mo</th>
+                              <th>Tu</th>
+                              <th>We</th>
+                              <th>Th</th>
+                              <th>Fr</th>
+                              <th>Sa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="weekend off available" data-title="r0c0">30</td>
+                              <td class="off available" data-title="r0c1">31</td>
+                              <td class="available" data-title="r0c2">1</td>
+                              <td class="available" data-title="r0c3">2</td>
+                              <td class="available" data-title="r0c4">3</td>
+                              <td class="available" data-title="r0c5">4</td>
+                              <td class="weekend available" data-title="r0c6">5</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r1c0">6</td>
+                              <td class="available" data-title="r1c1">7</td>
+                              <td class="available" data-title="r1c2">8</td>
+                              <td class="available" data-title="r1c3">9</td>
+                              <td class="available" data-title="r1c4">10</td>
+                              <td class="available" data-title="r1c5">11</td>
+                              <td class="weekend available" data-title="r1c6">12</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r2c0">13</td>
+                              <td class="available" data-title="r2c1">14</td>
+                              <td class="available" data-title="r2c2">15</td>
+                              <td class="available" data-title="r2c3">16</td>
+                              <td class="available" data-title="r2c4">17</td>
+                              <td class="available" data-title="r2c5">18</td>
+                              <td class="weekend available" data-title="r2c6">19</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r3c0">20</td>
+                              <td class="available" data-title="r3c1">21</td>
+                              <td class="available" data-title="r3c2">22</td>
+                              <td class="available" data-title="r3c3">23</td>
+                              <td class="available" data-title="r3c4">24</td>
+                              <td class="available" data-title="r3c5">25</td>
+                              <td class="weekend available" data-title="r3c6">26</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend available" data-title="r4c0">27</td>
+                              <td class="available" data-title="r4c1">28</td>
+                              <td class="available" data-title="r4c2">29</td>
+                              <td class="available" data-title="r4c3">30</td>
+                              <td class="off available" data-title="r4c4">1</td>
+                              <td class="off available" data-title="r4c5">2</td>
+                              <td class="weekend off available" data-title="r4c6">3</td>
+                            </tr>
+                            <tr>
+                              <td class="weekend off available" data-title="r5c0">4</td>
+                              <td class="off available" data-title="r5c1">5</td>
+                              <td class="off available" data-title="r5c2">6</td>
+                              <td class="off available" data-title="r5c3">7</td>
+                              <td class="off available" data-title="r5c4">8</td>
+                              <td class="off available" data-title="r5c5">9</td>
+                              <td class="weekend off available" data-title="r5c6">10</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="ranges" style="display: none;">
+                      <div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" type="button">Apply</button> <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button></div>
+                    </div>
+                  </div>
+
+                  <fieldset>
+                    <div class="control-group">
+                      <div class="controls">
+                        <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                          <input type="text" class="form-control has-feedback-left" id="sprint_start" placeholder="" aria-describedby="inputSuccess2Status4">
+                          <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                          <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-3 col-sm-3 label-align ">Sprint Length</label>
+                <div class="col-md-3 col-sm-3 ">
+                  <select id="sprint_length" class="form-control form-control-sm">
+                    <option>Choose option</option>
+                    <option>One Week</option>
+                    <option>Two Weeks</option>
+                    <option>Three Weeks</option>
+                    <option>Four Weeks</option>
+                  </select>
+                </div>
+              </div>
+              <br /><br />
+              <div class="form-group-row">
+                <div class="table-responsive">
+                  <table class="table col-sm-6 offset-sm-3">
+                    <thead>
+                      <tr class="headings">
+                        <th class="column-title">Sprint # </th>
+                        <th class="column-title">End Date </th>
+                        <th class="column-title">Forecast </th>
+                        <th class="column-title">Actual </th>
+                        <th class="column-title no-link last"><span class="nobr">Action</span>
+                        </th>
+                        <th class="bulk-actions" colspan="7">
+                          <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="even pointer">
+                        <th scope="row">1</th>
+                        <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="03/13/20"></td>
+                        <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1M"></td>
+                        <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1.3M"></td>
+                        <td class=" last"><a href="#">Edit</a>
+                        </td>
+                      </tr>
+                      <tr class="even pointer">
+                        <th scope="row">1</th>
+                        <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="03/27/20"></td>
+                        <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1.1M"></td>
+                        <td><input class="form-control form-control-sm" required="required" type="text" disabled placeholder="$1.3M"></td>
+                        <td class=" last"><a href="#">Edit</a>
+                        </td>
+                      </tr>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+            <input type="button" name="previous" class="previous btn btn-sm btn-outline-secondary" value="Previous" />
+            <input type="button" name="next" class="next btn btn-sm btn-primary" value="Next" />
+          </fieldset>
+
+          <!-- Card
+          <fieldset>
+            <div class="card-wizard">
+              <h2 class="fs-title">Forecast</h2><br>
+              <p>Hi </p>
+            </div>
+
+            <input type="button" name="previous" class="previous btn btn-sm btn-outline-secondary" value="Previous" />
+            <input type="button" name="next" class="next btn btn-sm btn-primary" value="Next" />
+          </fieldset> -->
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>

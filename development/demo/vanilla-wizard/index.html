@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vanilla Wizard.</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+  <script src="https://use.fontawesome.com/6a6312675e.js"></script>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="wrapper">
+    <div id="wizard" class="wizard">
+      <div class="wizard__content">
+        <header class="wizard__header">
+          <div class="wizard__header-overlay"></div>
+
+          <div class="wizard__header-content">
+            <h1 class="wizard__title">Get start with Javascript!</h1>
+            <p class="wizard__subheading">Start with <span>3</span> simple steps.</p>
+          </div>
+
+          <div class="wizard__steps">
+            <nav class="steps">
+              <div class="step">
+                <div class="step__content">
+                  <p class="step__number"><i class="fa fa-github-alt"></i></p>
+                  <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                  </svg>
+
+                  <div class="lines">
+                    <div class="line -start">
+                    </div>
+
+                    <div class="line -background">
+                    </div>
+
+                    <div class="line -progress">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step__content">
+                  <p class="step__number"><i class="fa fa-book"></i></p>
+                  <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                  </svg>
+
+                  <div class="lines">
+                    <div class="line -background">
+                    </div>
+
+                    <div class="line -progress">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step__content">
+                  <p class="step__number"><i class="fa fa-group"></i></p>
+                  <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                  </svg>
+
+                  <div class="lines">
+                    <div class="line -background">
+                    </div>
+
+                    <div class="line -progress">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+
+        <div class="panels">
+          <div class="panel">
+            <header class="panel__header">
+              <h2 class="panel__title">Create a Github account</h2>
+              <p class="panel__subheading">With github you can show your projects and find new things everyday!</p>
+            </header>
+
+            <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+
+          <div class="panel">
+            <header class="panel__header">
+              <h2 class="panel__title">Learn more about pure Javascript.</h2>
+              <p class="panel__subheading">We have cool frameworks, but none is better then VanillaJS</p>
+            </header>
+
+            <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+          <div class="panel">
+            <header class="panel__header">
+              <h2 class="panel__title">Stay in touch with the community.</h2>
+              <p class="panel__subheading">Community is everything, and here we do some crazy stuff.</p>
+            </header>
+
+            <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+
+        <div class="wizard__footer">
+          <button class="button previous">Previous</button>
+          <button class="button next">Next</button>
+        </div>
+      </div>
+
+      <h1 class="wizard__congrats-message">
+        Congratulations, you are now in a world of pain and suffering!
+      </h1>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<?php
+
+function initDatabase($pdo) {
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS patients (
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            name    TEXT    NOT NULL,
+            age     INTEGER NOT NULL,
+            dob     TEXT,
+            gender  TEXT    NOT NULL,
+            address TEXT,
+            phone   TEXT
+        )
+    ");
+}
+
+function savePatient($pdo, $mode) {
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    $param = [
+        ':name'    => $data['name'],
+        ':age'     => $data['age']     ?? 0,
+        ':dob'     => $data['dob']     ?? "",
+        ':gender'  => $data['gender'],
+        ':address' => $data['address'] ?? "",
+        ':phone'   => $data['phone']   ?? ""
+    ];
+
+    if ($mode === 'create') {
+        $sql = 'INSERT INTO patients (name, age, dob, gender, address, phone) VALUES (:name, :age, :dob, :gender, :address, :phone)';
+    } elseif ($mode === 'update') {
+        $id = $_GET['id'] ?? 0;
+        $sql = 'UPDATE patients SET name = :name, age = :age, dob = :dob, gender = :gender, address = :address, phone = :phone WHERE id = :id';
+
+        $param[':id'] = $id;
+    } else {
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid mode']);
+        exit(); 
+    }
+        
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute( $param );
+    
+    $result = ['success' => true];
+
+    if ($mode === 'create') {
+        $result['id'] = $pdo->lastInsertId();
+    }
+
+    echo json_encode(['success' => true, 'id' => $pdo->lastInsertId()]);
+
+}
+
+$dbPath = __DIR__ . '/database.sqlite';
+$pdo = new PDO('sqlite:' . $dbPath);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if (!file_exists($dbPath)) {
+    initDatabase($pdo);
+}
+
+// Get the action from the URL
+$method = $_SERVER['REQUEST_METHOD'];
+
+// Set the response header to JSON
+header('Content-Type: application/json');
+
+try {
+    switch ($method) {
+        case 'GET':
+            $stmt = $pdo->query('SELECT * FROM patients');
+            $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($patients);
+            break;
+
+        case 'POST':
+            savePatient($pdo, "create");
+            break;
+
+        case 'PUT':
+            savePatient($pdo, "update");
+            break;
+
+        case 'DELETE':
+            // Delete a patient
+            $id = $_GET['id'] ?? 0;
+            $stmt = $pdo->prepare('DELETE FROM patients WHERE id = :id');
+            $stmt->execute([':id' => $id]);
+            echo json_encode(['success' => true]);
+            break;
+
+        default:
+            // Invalid action
+            http_response_code(400);
+            echo json_encode(['error' => 'Invalid action']);
+            break;
+    }
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['error' => $e->getMessage()]);
+}

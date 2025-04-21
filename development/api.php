@@ -1,4 +1,7 @@
 <?php
+
+$version = "1.0.3";
+
 // Database connection
 $dbPath = __DIR__ . '/database.sqlite';
 if (!file_exists($dbPath)) {
@@ -8,13 +11,16 @@ if (!file_exists($dbPath)) {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS patients (
-            id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            name    TEXT    NOT NULL,
-            age     INTEGER NOT NULL,
-            gender  TEXT    NOT NULL,
-            dob     TEXT,
-            address TEXT,
-            phone   TEXT
+            id            INTEGER PRIMARY KEY AUTOINCREMENT,
+            name          TEXT    NOT NULL,
+            age           INTEGER NOT NULL,
+            address       TEXT    NOT NULL,
+            gender        TEXT    NOT NULL,
+            phone         TEXT,
+            dob           TEXT,
+            compliant     TEXT,
+            treatments    TEXT,
+            investigation TEXT
         )
     ");
 } else {
@@ -27,20 +33,27 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // Set the response header to JSON
 header('Content-Type: application/json');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
 
 try {
     switch ($method) {
         case 'POST':
-            // Create a new patient
+            // Create/Add a new patient
             $data = json_decode(file_get_contents('php://input'), true);
-            $stmt = $pdo->prepare('INSERT INTO patients (name, age, dob, gender, address, phone) VALUES (:name, :age, :dob, :gender, :address, :phone)');
+            $stmt = $pdo->prepare('INSERT INTO patients (name, age, dob, gender, address, phone, compliant, treatments, investigation) VALUES (:name, :age, :dob, :gender, :address, :phone, :compliant, :treatments, :investigation)');
             $stmt->execute([
-                ':name'    => $data['name'],
-                ':age'     => $data['age'] ?? 0,
-                ':dob'     => $data['dob'],
-                ':gender'  => $data['gender'],
-                ':address' => $data['address'] ?? "",
-                ':phone'   => $data['phone'] ?? "",
+                ':name'          => $data['name'],
+                ':age'           => $data['age'] ?? 0,
+                ':dob'           => $data['dob'],
+                ':gender'        => $data['gender'],
+                ':address'       => $data['address'] ?? "",
+                ':phone'         => $data['phone'] ?? "",
+
+                ':compliant'     => $data['compliant'] ?? "",
+                ':treatments'    => $data['treatments'] ?? "",
+                ':investigation' => $data['investigation'] ?? "",
             ]);
             echo json_encode(['success' => true, 'id' => $pdo->lastInsertId()]);
             break;
@@ -56,13 +69,17 @@ try {
             // Update an existing patient
             $id = $_GET['id'] ?? 0;
             $data = json_decode(file_get_contents('php://input'), true);
-            $stmt = $pdo->prepare('UPDATE patients SET name = :name, age = :age, gender = :gender, address = :address, phone = :phone WHERE id = :id');
+            $stmt = $pdo->prepare('UPDATE patients SET name = :name, age = :age, dob = :dob, gender = :gender, compliant = :compliant, treatments = :treatments, investigation = :investigation, address = :address, phone = :phone WHERE id = :id');
             $stmt->execute([
-                ':name' => $data['name'],
-                ':age' => $data['age'],
-                ':gender' => $data['gender'],
-                ':address' => $data['address'],
-                ':phone' => $data['phone'],
+                ':name'          => $data['name'],
+                ':age'           => $data['age'],
+                ':gender'        => $data['gender'],
+                ':address'       => $data['address'],
+                ':phone'         => $data['phone'],
+                ':compliant'     => $data['compliant'] ?? "",
+                ':treatments'    => $data['treatments'] ?? "", 
+                ':investigation' => $data['investigation'] ?? "",
+                ':dob' => $data['dob'] ?? "",
                 ':id' => $id,
             ]);
             echo json_encode(['success' => true]);
@@ -74,6 +91,19 @@ try {
             $stmt = $pdo->prepare('DELETE FROM patients WHERE id = :id');
             $stmt->execute([':id' => $id]);
             echo json_encode(['success' => true]);
+            break;
+
+        case 'OPTIONS':
+            $config = [
+                'version' => $version,
+                'dbPath' => $dbPath,
+                'dbExists' => file_exists($dbPath),
+                'dbSize' => file_exists($dbPath) ? filesize($dbPath) : 0,
+                'db:tables' => $pdo->query("SELECT name FROM sqlite_master WHERE type='table'")->fetchAll(PDO::FETCH_COLUMN),
+                'db:patients' => $pdo->query("SELECT * FROM patients")->fetchAll(PDO::FETCH_ASSOC),
+            ];
+
+            echo json_encode(['config' => $config]);
             break;
 
         default:

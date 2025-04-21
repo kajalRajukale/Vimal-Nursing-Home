@@ -28,7 +28,7 @@ function patientApp() {
     },
 
     addPatient() {
-      console.log(`addPatient: isAddindg=${this.isAdding} isUpdating=${this.isUpdating} patient=`, this.currentPatient);
+      console.log(`addPatient: isAdding=${this.isAdding} isUpdating=${this.isUpdating} patient=`, this.currentPatient);
 
       fetch("api.php", {
         method: "POST",
